@@ -6,3 +6,4 @@ Demo at <a href="https://tables.doomster.eu"> tables.doomster.eu </a> <br>
 <h4>Todo List:</h4>
 <p>error manipulation. Fix ugly error when you insert wrong credentials. </p>
 <p>pagination on tables</p>
+<p>Add comments to the code :P</p>
