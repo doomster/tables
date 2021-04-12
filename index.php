@@ -26,6 +26,7 @@ if(isset($_GET['utn']))
 	</head>
 	<body>
 	<?php include('includes/header.php');	
+//connect to the DB  (pdo style)
 		if(strlen($_SESSION['DB_HOST']) != 0) { 
 			try
 			{
@@ -37,6 +38,7 @@ if(isset($_GET['utn']))
 			echo "<b> Something is wrong! press Disconnect button and try again</b> <br> <br> more info on the error: <br>";
 			exit("Error: " . $e->getMessage()); 
 			}
+//Request to see the Tables that exist inside the db
 		$sql= "SHOW TABLES FROM ".$_SESSION['DB_NAME'];
 		$result = pdoDB($dbh,$sql)->fetchall(PDO::FETCH_OBJ); ?>
 		<div class="container">
@@ -44,6 +46,7 @@ if(isset($_GET['utn']))
 				<div class="col-sm-8 mx-auto">
 					<h4 class="text-center">Tables List</h4>
 					<div class="list-group"> <?php
+//list the tables of the database. each table is a clickable link to the tables.php forwarding the table name and connection info. this way you select a table to be edited
 						$name= "Tables_in_".$_SESSION['DB_NAME']; 
 						foreach($result as $row) {
 						echo "<a href='../table.php?name=".$row->$name."' class=' text-center list-group-item list-group-item-action'>Edit table : ".$row->$name." </a>";
